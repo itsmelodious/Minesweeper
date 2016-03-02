@@ -1,27 +1,27 @@
 
 
 import de.bezier.guido.*;
-//Declare and initialize NUM_ROWS and NUM_COLS = 20
+public static final int NUM_ROWS = 20;
+public static final int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
-private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
+private ArrayList <MSButton> bombs = new ArrayList <MSButton>; //ArrayList of just the minesweeper buttons that are mined
 
 void setup ()
 {
     size(400, 400);
     textAlign(CENTER,CENTER);
-    
     // make the manager
     Interactive.make( this );
-    
-    //your code to declare and initialize buttons goes here
-    
-    
-    
+    buttons = new MSButton[NUM_ROWS][NUM_COLS];
+    for(int nRows = 0; nRows < NUM_ROWS; nRows++)
+        for(int nCols = 0; nCols < NUM_COLS; nCols++)
+            buttons[nRows][nCols] = new MSButton(nRows,nCols);
     setBombs();
 }
 public void setBombs()
 {
-    //your code
+    int row = (int)(Math.random()*NUM_ROWS);
+    int col = (int)(Math.random()*NUM_COLS);
 }
 
 public void draw ()
@@ -53,8 +53,8 @@ public class MSButton
     
     public MSButton ( int rr, int cc )
     {
-        // width = 400/NUM_COLS;
-        // height = 400/NUM_ROWS;
+        width = 400/NUM_COLS;
+        height = 400/NUM_ROWS;
         r = rr;
         c = cc; 
         x = c*width;
