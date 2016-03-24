@@ -103,7 +103,6 @@ public class MSButton
   {
     return clicked;
   }
-  // called by manager
 
   public void mousePressed () 
   {
@@ -121,7 +120,8 @@ public class MSButton
           unmarkedBombs++;
         else if (isMarked())
           unmarkedBombs--;
-      } else if (bombs.contains( this ) && marked == false)
+      } 
+      else if (bombs.contains( this ) && marked == false)
         displayLosingMessage();
       else if (countBombs(r, c)>0)
         setLabel(str(countBombs(r, c)));
